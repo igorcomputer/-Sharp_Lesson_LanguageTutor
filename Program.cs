@@ -12,10 +12,14 @@ namespace LanguageTutor
             tutor.AddWord("dog", "собака");
             tutor.AddWord("cat", "кошка");
             tutor.AddWord("byke", "велосипед");
-            
-            if(tutor.CheckWord("dog", "собака"))
+
+            if (tutor.CheckWord("dog", "собака"))
             {
                 Console.WriteLine("Правильно!");
+            } 
+            else
+            {
+                Console.WriteLine("Не правильно!");
             }
 
         }

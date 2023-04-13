@@ -7,6 +7,7 @@ namespace LanguageTutor
     class Tutor
     {
         private Dictionary<string, string> _dic = new Dictionary<string, string>();
+        private Random _rand = new Random();
 
         public void AddWord(string eng, string rus)
         {
@@ -16,7 +17,22 @@ namespace LanguageTutor
         public bool CheckWord(string eng, string rus)
         {
             var answer = _dic[eng];
-            return answer == rus;
+            return answer.ToLower() == rus.ToLower();
+        }
+
+        public string Translate(string eng)
+        {
+            if (_dic.ContainsKey(eng))
+                return _dic[eng];
+            else
+                return null;
+        }
+
+        public string GetRandomEngWord()
+        {
+            var r = _rand.Next(0, _dic.Count);
+            var keys = new List<string>(_dic.Keys);
+            return keys[r];
         }
     }
 }
