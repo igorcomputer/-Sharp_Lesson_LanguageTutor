@@ -7,11 +7,12 @@ namespace LanguageTutor
     {
         static void Main(string[] args)
         {
+
             var tutor = new Tutor();
-            tutor.AddWord("hello", "привет");
-            tutor.AddWord("dog", "собака");
-            tutor.AddWord("cat", "кошка");
-            tutor.AddWord("byke", "велосипед");
+            //tutor.AddWord("hello", "привет");
+            //tutor.AddWord("dog", "собака");
+            //tutor.AddWord("cat", "кошка");
+            //tutor.AddWord("byke", "велосипед");
 
             while (true)
             {
