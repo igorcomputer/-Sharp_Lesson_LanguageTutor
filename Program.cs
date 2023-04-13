@@ -13,13 +13,19 @@ namespace LanguageTutor
             tutor.AddWord("cat", "кошка");
             tutor.AddWord("byke", "велосипед");
 
-            if (tutor.CheckWord("dog", "собака"))
+            while (true)
             {
-                Console.WriteLine("Правильно!");
-            } 
-            else
-            {
-                Console.WriteLine("Не правильно!");
+                var word = tutor.GetRandomEngWord();
+                Console.WriteLine($"Как переводится слово: {word}?");
+
+                var userAnswer = Console.ReadLine();
+                if (tutor.CheckWord(word, userAnswer))
+                    Console.WriteLine("Правильно!");
+                else
+                {
+                    var correctAnswer = tutor.Translate(word);
+                    Console.WriteLine($"Неверно. Правильный ответ: {correctAnswer}");
+                }
             }
 
         }
