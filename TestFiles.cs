@@ -46,5 +46,27 @@ namespace LanguageTutor
             var text = File.ReadAllText(path);
             Console.WriteLine(text);
         }
+
+        public List<int> GetArrayFromFile(string path)
+        {
+            try
+            {
+                string content = File.ReadAllText(path);
+                var numString = content.Split(' ');
+                List<int> nums = new List<int>();
+
+                for (int i = 0; i < numString.Length; i++)
+                {
+                    int num;
+                    if (Int32.TryParse(numString[i], out num))
+                        nums.Add(num);
+                }
+                return nums;
+            } catch (Exception ex)
+            {
+                Console.WriteLine($"Не удалось прочитать содержимое файла {path}");
+                return new List<int>();
+            }
+        }
     }
 }
